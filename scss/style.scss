@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Bebas+Neue&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,h2,h3,p{
+    color: #08090a;
+}
+
+h1,h2,h3{
+    font-family: 'Bebas Neue', cursive;
+}
+
+body{
+    background: rgb(124,198,254);
+    background: linear-gradient(130deg, rgba(124,198,254,1) 0%, rgba(244,250,255,1) 100%); 
+    font-family: 'Arimo', sans-serif;
+    position: relative;
+
+    h1{
+        font-size: 4rem;
+        margin-left: 2rem;
+        text-decoration: underline;
+    }
+
+    .module{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #4040ff44;
+        z-index: 5;
+        display: none;
+        place-items: center;
+
+        .module-card{
+            background-color: #f4faff;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 12rem;
+
+            h1{
+                margin: 0;
+            }
+
+            h3{
+                font-size: 1.6rem;
+            }
+
+            p{
+                margin-top: 2rem;
+                color: #4040ff;
+            }
+        }
+    }
+
+    .show-module{
+        display: grid;
+    }
+    
+    .container{
+        width: 100%;
+        height: auto;
+        padding: 2rem 10rem;
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 5rem;
+        
+        @media(max-width: 1300px){
+            padding: 1rem 2rem;
+        }
+
+        @media(max-width: 1000px){
+            grid-template-columns: 1fr;
+        }
+        
+        .cards{
+            display: flex;
+            flex-direction: column;
+            
+            .card{
+                background-color: #f4faff;
+                position: relative;
+                margin-top: 3rem;
+                padding: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: 900px;
+                border-radius: 12px;
+
+                &::before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    background-color: #5dfdcb;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 60px;
+                    border-radius: 12px 0 0 12px;
+                    // z-index: -2;
+                }
+
+                .product-image{
+                    width: 140px;
+                    height: 140px;
+                    min-width: 140px;
+                    min-height: 140px;
+                    border-radius: 50%;
+                    // background-color: black;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    z-index: 2;
+                }
+
+                .pi1{
+                    background-image: url('/images/flowerpot.jpg');
+                }
+
+                .pi2{
+                    background-image: url('/images/sunglasses.jpg');
+                }
+
+                .pi4{
+                    background-image: url('/images/teddy.jpg');
+                }
+
+                .product-text{
+                    padding: 1.3rem;
+                    z-index: 3;
+
+                    .product-name{
+                        font-size: 2rem;
+                        font-family: 'Bebas Neue', cursive;
+                    }
+
+                    .price{
+                        margin-top: 1.2rem;
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .add-cart{
+                    position: relative;
+                    pointer-events: none;
+                    width: 100px;
+                    height: 100px;
+                    min-width: 100px;
+                    min-height: 100px;
+                    // cursor: pointer;
+
+                    &::before{
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        pointer-events: all;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 53px;
+                        height: 53px;
+                        border-radius: 100%;
+                        cursor: pointer;
+                        // z-index: 3;
+                        background-color: transparent;
+                    }
+                }
+
+                
+                @media(max-width: 520px){
+                    flex-direction: column;
+                    text-align: right;
+                }
+            }
+        }
+
+        .order{
+            background-color: #5dfdcb;
+            border: 5px solid #7cc6fe;
+            height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            justify-content: center;
+
+            .order-text{
+                padding: 2rem;
+
+                h2{
+                    font-family: 'Bebas Neue', cursive;
+                    font-size: 3rem;
+                }
+            }
+
+            .order-spot{
+                position: relative;
+
+                .truck{
+                    width: 200px;
+                    height: 200px;
+                    position: relative;
+                    pointer-events: none;
+                    
+                    &::before{
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        pointer-events: all;
+                        width: 130px;
+                        height: 130px;
+                        border-radius: 100%;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        cursor: pointer;
+                        background-color: transparent;
+                    }
+
+                    // &::after{
+                    //     content: 'order';
+                    //     display: block;
+                    //     position: absolute;
+                    //     color: #4040ff;
+                    //     top: 50%;
+                    //     left: 50%;
+                    //     transform: translate(-50%, -50%);
+                    //     font-size: 1.2rem;
+                    // }
+                }
+
+                p{
+                    position: absolute;
+                    top: 75%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: #4040ff;
+                }
+            }
+        }
+    }
+}
